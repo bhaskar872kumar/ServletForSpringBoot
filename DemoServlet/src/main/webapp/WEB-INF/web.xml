@@ -28,4 +28,14 @@
   
   
   </servlet-mapping>
+  
+  <context-param>
+  <param-name>name</param-name>
+  <param-value>Bhaskar</param-value>
+  </context-param>
+  
+   <context-param>
+  <param-name>hostel</param-name>
+  <param-value>zakirB</param-value>
+  </context-param>
 </web-app>

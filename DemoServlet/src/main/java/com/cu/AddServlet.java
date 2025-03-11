@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -18,11 +19,13 @@ public class AddServlet extends HttpServlet
 		int j=Integer.parseInt(req.getParameter("num2"));
 		int k=i+j;
 		
-		Cookie cookie=new Cookie("k",k+"");
+		PrintWriter out=res.getWriter();
+		out.print("Hi ");
+		ServletContext ctx=getServletContext();
+		String str=ctx.getInitParameter("hostel");
+		out.println(str);
 		
-		res.addCookie(cookie);
-		
-		res.sendRedirect("sq");
+//		res.sendRedirect("sq"); 
 		
 
 		
