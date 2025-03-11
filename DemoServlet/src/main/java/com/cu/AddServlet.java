@@ -11,17 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AddServlet extends HttpServlet
 {
-	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException {
+	public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException {
 		int i=Integer.parseInt(req.getParameter("num1"));
 		int j=Integer.parseInt(req.getParameter("num2"));
 		int k=i+j;
-		PrintWriter out=res.getWriter();
-		out.println("sum is "+k);
 		
-		req.setAttribute("k", k);
+//		res.sendRedirect("sq?k="+k);
+		res.sendRedirect("sq");
+//		If we don't send the value of k here the the second Servlet would 
+//		get an error while trying to fetch the value of k
+//		and would redirect us to
+//		http://localhost:8081/DemoServlet/sq
+//		either in the browser we can add ?k=9 at the end 
+//		so the url becomes http://localhost:8081/DemoServlet/sq?k=9 -> SecondServlet would run
+
 		
-		RequestDispatcher rd=req.getRequestDispatcher("sq");
-		rd.forward(req, res);
+		
+
 		
 	}
 }

@@ -8,10 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class SqServlet extends HttpServlet {
-	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException {
-			int k=(int)req.getAttribute("k");
+	public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException {
+			
+		int k=Integer.parseInt(req.getParameter("k"));
+//		here we are trying to get the value of k which has not been sent by firstServlet(addServlet)
 		PrintWriter out=res.getWriter();
-		out.println("the square is "+k*k);
+		out.println("you are on the second servlet and the square is "+k*k);
 	}
 
 }
